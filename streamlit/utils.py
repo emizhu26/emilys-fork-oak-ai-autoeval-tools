@@ -858,18 +858,18 @@ def run_inference(lesson_plan, prompt_id, llm_model, llm_model_temp,
     Returns:
         dict: Inference result or error response.
     """
-    endpoint = get_env_variable("ENDPOINT")
-    username = get_env_variable("USERNAME")
-    credential = get_env_variable("CREDENTIAL")
-    required_keys = ["title", "topic", "subject", "keyStage"]
-    if not all(k in lesson_plan for k in required_keys):
-        return {
-            "response": {
-                "result": None, 
-                "justification": "Lesson data is missing for this check."
-            },
-            "status": "ABORTED",
-        }
+    endpoint = 1
+    username = 2
+    credential = 3
+    # required_keys = ["title", "topic", "subject", "keyStage"]
+    # if not all(k in lesson_plan for k in required_keys):
+    #     return {
+    #         "response": {
+    #             "result": None, 
+    #             "justification": "Lesson data is missing for this check."
+    #         },
+    #         "status": "ABORTED",
+    #     }
 
     prompt_details = get_prompt(prompt_id)
     if not prompt_details:
